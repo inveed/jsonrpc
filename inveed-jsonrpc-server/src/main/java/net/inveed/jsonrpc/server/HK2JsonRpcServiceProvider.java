@@ -9,7 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import net.inveed.jsonrpc.server.typeutils.JsonRpcTypeExt;
-import net.inveed.typeutils.BeanTypeDesc;
+import net.inveed.commons.reflection.BeanTypeDesc;
 
 public class HK2JsonRpcServiceProvider implements IJsonRpcServiceProvider {
 	private static final Logger LOG = LoggerFactory.getLogger(HK2JsonRpcServiceProvider.class);

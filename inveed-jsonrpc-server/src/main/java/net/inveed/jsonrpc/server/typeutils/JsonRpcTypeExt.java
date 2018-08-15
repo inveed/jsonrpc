@@ -4,9 +4,9 @@ import java.util.HashMap;
 import java.util.List;
 
 import net.inveed.jsonrpc.core.annotation.JsonRpcService;
-import net.inveed.typeutils.BeanTypeDesc;
-import net.inveed.typeutils.MethodMetadata;
-import net.inveed.typeutils.ext.IBeanTypeExtension;
+import net.inveed.commons.reflection.BeanTypeDesc;
+import net.inveed.commons.reflection.MethodMetadata;
+import net.inveed.commons.reflection.ext.IBeanTypeExtension;
 
 public class JsonRpcTypeExt<T> implements IBeanTypeExtension<T> {
 	private static final HashMap<String, BeanTypeDesc<?>> services = new HashMap<>();

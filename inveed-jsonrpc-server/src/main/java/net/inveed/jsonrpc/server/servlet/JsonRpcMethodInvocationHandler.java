@@ -20,11 +20,11 @@ import net.inveed.jsonrpc.server.ThrowablesUtil;
 import net.inveed.jsonrpc.server.typeutils.JsonRpcMethodExt;
 import net.inveed.jsonrpc.server.typeutils.JsonRpcMethodParamExt;
 import net.inveed.rest.jpa.jackson.JsonConfiguration;
-import net.inveed.typeutils.BeanTypeDesc;
-import net.inveed.typeutils.JavaTypeDesc;
-import net.inveed.typeutils.JavaTypeRegistry;
-import net.inveed.typeutils.MethodMetadata;
-import net.inveed.typeutils.ParameterMetadata;
+import net.inveed.commons.reflection.BeanTypeDesc;
+import net.inveed.commons.reflection.JavaTypeDesc;
+import net.inveed.commons.reflection.JavaTypeRegistry;
+import net.inveed.commons.reflection.MethodMetadata;
+import net.inveed.commons.reflection.ParameterMetadata;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

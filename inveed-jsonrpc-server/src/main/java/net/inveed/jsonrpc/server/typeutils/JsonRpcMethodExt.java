@@ -3,9 +3,9 @@ package net.inveed.jsonrpc.server.typeutils;
 import java.util.HashMap;
 
 import net.inveed.jsonrpc.core.annotation.JsonRpcMethod;
-import net.inveed.typeutils.MethodMetadata;
-import net.inveed.typeutils.ParameterMetadata;
-import net.inveed.typeutils.ext.IMethodExtension;
+import net.inveed.commons.reflection.MethodMetadata;
+import net.inveed.commons.reflection.ParameterMetadata;
+import net.inveed.commons.reflection.ext.IMethodExtension;
 
 
 public class JsonRpcMethodExt implements IMethodExtension {

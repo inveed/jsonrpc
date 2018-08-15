@@ -1,8 +1,8 @@
 package net.inveed.jsonrpc.server.typeutils;
 
 import net.inveed.jsonrpc.core.annotation.JsonRpcParam;
-import net.inveed.typeutils.ParameterMetadata;
-import net.inveed.typeutils.ext.IParameterExtension;
+import net.inveed.commons.reflection.ParameterMetadata;
+import net.inveed.commons.reflection.ext.IParameterExtension;
 
 
 public class JsonRpcMethodParamExt implements IParameterExtension {
