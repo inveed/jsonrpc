@@ -4,7 +4,7 @@
 	<groupId>net.inveed</groupId>
 	<artifactId>inveed-jsonrpc-root</artifactId>
 	<packaging>pom</packaging>
-	<version>0.0.3</version>
+	<version>0.0.4-SNAPSHOT</version>
 	<name>Inveed JSON-RPC Root Project</name>
 	<description>JSON-RPC Protocol Implementation</description>
 	<url>https://github.com/inveed/jsonrpc</url>
@@ -17,7 +17,7 @@
 	</modules>
 
 	<properties>
-		<global.version>0.0.3</global.version>
+		<global.version>0.0.4-SNAPSHOT</global.version>
 		<json-jpa-version>0.0.4</json-jpa-version>
 		<jackson-version>2.9.7</jackson-version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -26,7 +26,7 @@
 		<url>https://github.com/inveed/jsonrpc</url>
 		<connection>scm:git:git://github.com/inveed/jsonrpc.git</connection>
 		<developerConnection>scm:git:git@github.com:inveed/jsonrpc.git</developerConnection>
-		<tag>v0.0.3</tag>
+		<tag>HEAD</tag>
 	</scm>
 
 	<!-- Maven build settings -->
