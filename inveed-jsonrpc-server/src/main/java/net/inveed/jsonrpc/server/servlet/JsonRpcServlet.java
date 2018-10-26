@@ -12,6 +12,8 @@ import org.glassfish.hk2.api.ServiceLocator;
 import org.glassfish.hk2.utilities.ServiceLocatorUtilities;
 import org.glassfish.hk2.utilities.binding.AbstractBinder;
 
+import com.google.common.base.Joiner;
+
 import net.inveed.jsonrpc.core.annotation.JsonRpcRequestScope;
 import net.inveed.jsonrpc.core.domain.Response;
 import net.inveed.jsonrpc.server.HK2JsonRpcServiceProvider;
@@ -44,10 +46,31 @@ public class JsonRpcServlet extends HttpServlet {
 	}
 	@Override
 	protected void doOptions(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		resp.setHeader("Access-Control-Allow-Origin", "*");
-		resp.setHeader("Access-Control-Allow-Methods", "GET, POST, DELETE");			
-		resp.setHeader("Access-Control-Allow-Headers", "X-Requested-With, Content-Type, X-Auth-Token");
+		setCORSHeaders(req, resp);
 		super.doOptions(req, resp);
+	}
+	private void setCORSHeaders(HttpServletRequest req, HttpServletResponse resp) {
+		String origin = req.getHeader(Headers.HEADER_ORIGIN);
+		if (origin == null) {
+			origin = "*";
+		}
+		origin = origin.trim();
+		if (origin.length() == 0) {
+			origin = "*";
+		}
+		resp.setHeader(Headers.HEADER_ACCESS_CONTROL_ALLOW_CREDENTIALS, "true");
+		resp.setHeader(Headers.HEADER_ACCESS_CONTROL_ALLOW_ORIGIN, origin);
+		resp.setHeader(Headers.HEADER_ACCESS_CONTROL_ALLOW_METHODS, 
+				Joiner.on(", ").join(
+						Headers.METHOD_GET, 
+						Headers.METHOD_POST, 
+						Headers.METHOD_DELETE));			
+		resp.setHeader(Headers.HEADER_ACCESS_CONTROL_ALLOW_HEADERS, 
+				Joiner.on(", ").join(
+						Headers.HEADER_X_REQUEST_WITH,
+						Headers.HEADER_CONTENT_TYPE, 
+						Headers.HEADER_X_AUTH_TOKEN,
+						Headers.HEADER_COOKIE));
 	}
 	@Override
 	protected void doPost(final HttpServletRequest req, final HttpServletResponse resp) throws ServletException, IOException {
@@ -93,10 +116,7 @@ public class JsonRpcServlet extends HttpServlet {
 						resp.setStatus(status);
 					}
 					
-					resp.setHeader("Access-Control-Allow-Origin", "*");
-					resp.setHeader("Access-Control-Allow-Methods", "GET, POST, DELETE");			
-					resp.setHeader("Access-Control-Allow-Headers", "X-Requested-With, Content-Type, X-Auth-Token");
-					
+					setCORSHeaders(req, resp);
 					jsonConfig.getMapper().writer().writeValue(resp.getOutputStream(), response);
 					resp.getOutputStream().flush();
 				} catch (IOException e) {
